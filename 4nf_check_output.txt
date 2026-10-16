@@ -1,0 +1,64 @@
+
+=== 4NF_Assignment_Certifications.csv | 30 rows | columns: ['ProjectID', 'WorkerName', 'Certification']
+  No 4NF violations found
+
+=== 4NF_Assignment_Skills.csv | 30 rows | columns: ['ProjectID', 'WorkerName', 'WorkerSkill']
+  No 4NF violations found
+
+=== 4NF_Cities.csv | 6 rows | columns: ['SiteCity', 'SiteState']
+  Fewer than 3 columns: no non-trivial MVD is possible
+
+=== 4NF_Clients.csv | 4 rows | columns: ['ClientName', 'ClientPhone', 'ClientEmail', 'ClientCity']
+  MVD ['ClientName'] ->> ['ClientPhone'] | ['ClientEmail', 'ClientCity']   OK (determinant is a key)
+  MVD ['ClientName'] ->> ['ClientEmail'] | ['ClientPhone', 'ClientCity']   OK (determinant is a key)
+  MVD ['ClientName'] ->> ['ClientCity'] | ['ClientPhone', 'ClientEmail']   OK (determinant is a key)
+  MVD ['ClientPhone'] ->> ['ClientName'] | ['ClientEmail', 'ClientCity']   OK (determinant is a key)
+  MVD ['ClientPhone'] ->> ['ClientEmail'] | ['ClientName', 'ClientCity']   OK (determinant is a key)
+  MVD ['ClientPhone'] ->> ['ClientCity'] | ['ClientName', 'ClientEmail']   OK (determinant is a key)
+  MVD ['ClientEmail'] ->> ['ClientName'] | ['ClientPhone', 'ClientCity']   OK (determinant is a key)
+  MVD ['ClientEmail'] ->> ['ClientPhone'] | ['ClientName', 'ClientCity']   OK (determinant is a key)
+  MVD ['ClientEmail'] ->> ['ClientCity'] | ['ClientName', 'ClientPhone']   OK (determinant is a key)
+  MVD ['ClientName', 'ClientPhone'] ->> ['ClientCity'] | ['ClientEmail']   OK (determinant is a key)
+  MVD ['ClientName', 'ClientEmail'] ->> ['ClientCity'] | ['ClientPhone']   OK (determinant is a key)
+  MVD ['ClientName', 'ClientCity'] ->> ['ClientEmail'] | ['ClientPhone']   OK (determinant is a key)
+  MVD ['ClientPhone', 'ClientEmail'] ->> ['ClientCity'] | ['ClientName']   OK (determinant is a key)
+  MVD ['ClientPhone', 'ClientCity'] ->> ['ClientEmail'] | ['ClientName']   OK (determinant is a key)
+  MVD ['ClientEmail', 'ClientCity'] ->> ['ClientName'] | ['ClientPhone']   OK (determinant is a key)
+  No 4NF violations found
+
+=== 4NF_Project_Assignments.csv | 15 rows | columns: ['ProjectID', 'WorkerName', 'SupplierName']
+  No 4NF violations found
+
+=== 4NF_Project_Equipment.csv | 13 rows | columns: ['ProjectID', 'EquipmentUsed', 'EquipmentRentalCost']
+  MVD ['EquipmentRentalCost'] ->> ['EquipmentUsed'] | ['ProjectID']   OK (determinant is a key)
+  No 4NF violations found
+
+=== 4NF_Project_Materials.csv | 15 rows | columns: ['ProjectID', 'MaterialSupplied', 'MaterialUnitCost']
+  MVD ['MaterialUnitCost'] ->> ['MaterialSupplied'] | ['ProjectID']   VIOLATION
+
+=== 4NF_Project_Supplier_Equipment.csv | 16 rows | columns: ['ProjectID', 'SupplierName', 'EquipmentUsed']
+  No 4NF violations found
+
+=== 4NF_Project_Supplier_Materials.csv | 16 rows | columns: ['ProjectID', 'SupplierName', 'MaterialSupplied']
+  No 4NF violations found
+
+=== 4NF_Project_Suppliers.csv | 10 rows | columns: ['ProjectID', 'SupplierName']
+  Fewer than 3 columns: no non-trivial MVD is possible
+
+=== 4NF_Projects.csv | 7 rows | columns: ['ProjectID', 'ProjectName', 'ProjectType', 'StartDate', 'EndDate', 'SiteAddress', 'SiteCity', 'ClientName', 'SupervisorName']
+  Skipped: single key with only single-valued attributes (checked by hand)
+
+=== 4NF_Supervisors.csv | 3 rows | columns: ['SupervisorName', 'SupervisorPhone']
+  Fewer than 3 columns: no non-trivial MVD is possible
+
+=== 4NF_Supplier_Phones.csv | 8 rows | columns: ['SupplierName', 'SupplierPhone']
+  Fewer than 3 columns: no non-trivial MVD is possible
+
+=== 4NF_Suppliers.csv | 6 rows | columns: ['SupplierName', 'SupplierCity']
+  Fewer than 3 columns: no non-trivial MVD is possible
+
+=== 4NF_Workers.csv | 5 rows | columns: ['WorkerName', 'WorkerPhone', 'WorkerHourlyRate']
+  MVD ['WorkerName'] ->> ['WorkerHourlyRate'] | ['WorkerPhone']   OK (determinant is a key)
+  MVD ['WorkerPhone'] ->> ['WorkerHourlyRate'] | ['WorkerName']   OK (determinant is a key)
+  MVD ['WorkerHourlyRate'] ->> ['WorkerName'] | ['WorkerPhone']   OK (determinant is a key)
+  No 4NF violations found
