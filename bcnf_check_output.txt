@@ -1,0 +1,60 @@
+
+=== BCNF_Assignment_Certifications.csv | 30 rows | columns: ['ProjectID', 'WorkerName', 'Certification']
+  Candidate keys: none found up to size 2
+  No BCNF violations found
+
+=== BCNF_Assignment_Skills.csv | 30 rows | columns: ['ProjectID', 'WorkerName', 'WorkerSkill']
+  Candidate keys: [['ProjectID', 'WorkerSkill']]
+  No BCNF violations found
+
+=== BCNF_Cities.csv | 6 rows | columns: ['SiteCity', 'SiteState']
+  Candidate keys: [['SiteCity'], ['SiteState']]
+  No BCNF violations found
+
+=== BCNF_Clients.csv | 4 rows | columns: ['ClientName', 'ClientPhone', 'ClientEmail', 'ClientCity']
+  Candidate keys: [['ClientName'], ['ClientPhone'], ['ClientEmail']]
+  No BCNF violations found
+
+=== BCNF_Project_Assignments.csv | 15 rows | columns: ['ProjectID', 'WorkerName', 'SupplierName']
+  Candidate keys: [['ProjectID', 'WorkerName']]
+  No BCNF violations found
+
+=== BCNF_Project_Equipment.csv | 13 rows | columns: ['ProjectID', 'EquipmentUsed', 'EquipmentRentalCost']
+  Candidate keys: [['EquipmentRentalCost'], ['ProjectID', 'EquipmentUsed']]
+  No BCNF violations found
+
+=== BCNF_Project_Materials.csv | 15 rows | columns: ['ProjectID', 'MaterialSupplied', 'MaterialUnitCost']
+  Candidate keys: [['ProjectID', 'MaterialSupplied'], ['ProjectID', 'MaterialUnitCost']]
+  VIOLATION: ['MaterialUnitCost'] -> MaterialSupplied   (['MaterialUnitCost'] is not a candidate key)
+
+=== BCNF_Project_Supplier_Equipment.csv | 16 rows | columns: ['ProjectID', 'SupplierName', 'EquipmentUsed']
+  Candidate keys: none found up to size 2
+  No BCNF violations found
+
+=== BCNF_Project_Supplier_Materials.csv | 16 rows | columns: ['ProjectID', 'SupplierName', 'MaterialSupplied']
+  Candidate keys: none found up to size 2
+  No BCNF violations found
+
+=== BCNF_Project_Suppliers.csv | 10 rows | columns: ['ProjectID', 'SupplierName']
+  Candidate keys: [['ProjectID', 'SupplierName']]
+  No BCNF violations found
+
+=== BCNF_Projects.csv | 7 rows | columns: ['ProjectID', 'ProjectName', 'ProjectType', 'StartDate', 'EndDate', 'SiteAddress', 'SiteCity', 'ClientName', 'SupervisorName']
+  Candidate keys: [['ProjectID'], ['ProjectName'], ['StartDate'], ['EndDate'], ['SiteAddress'], ['ProjectType', 'SiteCity'], ['SiteCity', 'ClientName'], ['SiteCity', 'SupervisorName']]
+  VIOLATION: ['ClientName'] -> ProjectType   (['ClientName'] is not a candidate key)
+
+=== BCNF_Supervisors.csv | 3 rows | columns: ['SupervisorName', 'SupervisorPhone']
+  Candidate keys: [['SupervisorName'], ['SupervisorPhone']]
+  No BCNF violations found
+
+=== BCNF_Supplier_Phones.csv | 8 rows | columns: ['SupplierName', 'SupplierPhone']
+  Candidate keys: [['SupplierPhone']]
+  No BCNF violations found
+
+=== BCNF_Suppliers.csv | 6 rows | columns: ['SupplierName', 'SupplierCity']
+  Candidate keys: [['SupplierName'], ['SupplierCity']]
+  No BCNF violations found
+
+=== BCNF_Workers.csv | 5 rows | columns: ['WorkerName', 'WorkerPhone', 'WorkerHourlyRate']
+  Candidate keys: [['WorkerName'], ['WorkerPhone'], ['WorkerHourlyRate']]
+  No BCNF violations found
